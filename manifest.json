@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Copy Gif",
+    "version": "1.0.0",
+    "description": "A chorme extension to download gif from google search page.",
+    "permissions": [
+       "clipboardWrite",
+       "clipboardRead",
+       "scripting",
+       "activeTab",
+       "downloads"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
