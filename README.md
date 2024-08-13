@@ -1,2 +1,2 @@
-# copy-gif
-A chorme extension to click and copy a gif from google search 
+# Copy Gif
+A chorme extension to download gif from google search page. 
