@@ -4,15 +4,19 @@
     "version": "1.0.0",
     "description": "A chorme extension to download gif from google search page.",
     "permissions": [
-       "clipboardWrite",
-       "clipboardRead",
-       "scripting",
+       "contextMenus",
        "activeTab",
        "downloads"
     ],
     "background": {
         "service_worker": "background.js"
-    },
+    },"content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
     "action": {
         "default_popup": "popup.html"
     }
