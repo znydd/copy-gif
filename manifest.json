@@ -1,23 +1,26 @@
 {
-    "manifest_version": 3,
-    "name": "Copy Gif",
-    "version": "1.0.0",
-    "description": "A chorme extension to download gif from google search page.",
-    "permissions": [
-       "contextMenus",
-       "activeTab",
-       "downloads"
-    ],
-    "background": {
-        "service_worker": "background.js"
-    },"content_scripts": [
+  "manifest_version": 3,
+  "name": "Copy Gif",
+  "version": "1.0.0",
+  "description": "A chorme extension to download gif from google search page.",
+  "icons": {
+    "16": "./asset/copy-gif-logo16.png",
+    "32": "./asset/copy-gif-logo32.png",
+    "48": "./asset/copy-gif-logo48.png",
+    "128": "./asset/copy-gif-logo128.png"
+  },
+  "permissions": ["contextMenus", "activeTab", "downloads"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"],
       "run_at": "document_idle"
     }
   ],
-    "action": {
-        "default_popup": "popup.html"
-    }
+  "action": {
+    "default_popup": "popup.html"
+  }
 }
