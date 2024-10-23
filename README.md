@@ -15,6 +15,8 @@
 
 ### :red_circle:**`Just like the demo only gif with written "GIF" on the bottom will download.`**
 
+![GIF_sc](/asset/GIF_logo.png)
+
 ### :red_circle:**`When you hover on the "GIF" icon notice on the bottom a link load if the link is not fully loaded wait a second to load then click to download, it happens only when we just open the search page the reason is to load the extension`**
 
 <details>
