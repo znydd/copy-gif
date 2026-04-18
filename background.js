@@ -56,19 +56,48 @@ function getHoveredLinkFromContentScript(tabId) {
   });
 }
 
+function buildGifFileName(url) {
+  try {
+    const parsed = new URL(url);
+    const rawName = parsed.pathname.split("/").pop() || "copied-gif";
+    const cleanName = rawName.split("?")[0].split("#")[0] || "copied-gif";
+    return cleanName.toLowerCase().endsWith(".gif") ? cleanName : `${cleanName}.gif`;
+  }
+  catch {
+    return `copied-gif-${Date.now()}.gif`;
+  }
+}
+
 function downloadGif(url) {
+  const fileName = buildGifFileName(url);
+
   chrome.downloads.download(
     {
       url,
-      conflictAction: "uniquify"
+      conflictAction: "uniquify",
+      saveAs: false
     },
     (downloadId) => {
-      if (chrome.runtime.lastError) {
-        console.error("Download failed:", chrome.runtime.lastError.message);
+      if (chrome.runtime.lastError || !downloadId) {
+        console.error("Download failed:", chrome.runtime.lastError?.message);
         return;
       }
 
+      const onChanged = (delta) => {
+        if (delta.id !== downloadId || !delta.state) return;
+        if (delta.state.current === "complete") {
+          chrome.downloads.onChanged.removeListener(onChanged);
+          chrome.downloads.show(downloadId);
+        }
+
+        if (delta.state.current === "interrupted") {
+          chrome.downloads.onChanged.removeListener(onChanged);
+          console.error("Download interrupted:", downloadId);
+        }
+      };
+
       console.log("Download started. ID:", downloadId);
+      chrome.downloads.onChanged.addListener(onChanged);
     }
   );
 }
