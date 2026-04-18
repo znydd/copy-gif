@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Copy Gif",
-  "version": "1.0.0",
+  "version": "0.2.1",
   "description": "A chorme extension to download gif from google search page.",
   "icons": {
     "16": "./asset/icons/icon16.png",
