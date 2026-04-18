@@ -1,70 +1,57 @@
-<h1 align="center">
-  <br>
-  <a href=""><img src="./asset/readme-copy-gif-logo.jpeg" alt="Markdownify" width="200"></a>
-  <br>
- Copy Gif
-  <br>
-</h1>
-<h4 align="center" style="color:#e74c3c">A chrome extension to download gif from google search page<h4>
+# Copy Gif
 
-# Demo
+<p align="center">
+  <img src="asset/Banner.png" alt="Copy Gif Banner" />
+</p>
 
-![Demo](asset/copy-gif-demo.gif)
+<p align="center">
+  Download GIFs directly from Google image results with one right-click.
+</p>
 
-## Limitations
+<p align="center">
+  <a href="https://chromewebstore.google.com/detail/your-extension-id-here"><strong>Install from Chrome Web Store</strong></a>
+</p>
 
-### :red_circle:**`Just like the demo only gif with written "GIF" on the bottom will download.`**
+## Demo
 
-![GIF_sc](asset/GIF_logo.png)
+![Copy Gif Demo](asset/demo.gif)
 
-### :red_circle:**`When you hover on the "GIF" icon notice on the bottom a link load if the link is not fully loaded wait a second to load then click to download, it happens only when we just open the search page the reason is to load the extension`**
+## Features
 
-<details>
-<summary>
-<b>Unloaded Link example</b>
-</summary>
-<img src="asset/unloaded_link.png">
-</details>
+- Right-click a GIF result and download it instantly.
+- Clean and simple context menu action.
+- Saves files with conflict-safe naming.
+- Lightweight Chrome extension (Manifest V3).
 
-<details>
-<summary><b>Loaded Link example</b></summary>
-<img src="asset/loaded_link.png">
-</details>
+## Install
 
-### :red_circle:**`The extension is not available on the chrome extension store because I don't have any developer account so we have to use it through cloning`**
+### Chrome Web Store (Recommended)
 
-# How To Use
+Install the extension from Chrome Web Store:
 
-## 1. Clone
+`https://chromewebstore.google.com/detail/your-extension-id-here`
 
-#### Clone this repository and remember where you cloned the project
+> Replace this placeholder link with the real store URL after publishing.
 
-```bash
-$ git clone https://github.com/znydd/copy-gif
-```
+## How to Use
 
-## 2. Load extension
+1. Open Google and search for a GIF.
+2. Right-click on a GIF result.
+3. Click `Download gif`.
+4. The file will be downloaded to your Downloads folder.
 
-- ### **Open Google Chrome**
-- ### **Type `chrome://extensions` on the address bar to open extension manager like below ss**
-  ![extension_manager](asset/extension_mngr.png)
-- ### **Now toggle the Developer Mode option on the right upper corner to active Developer Mode**
+## Notes
 
-  ![dev_opt](asset/Developer_opt.png)
+- Some providers may block direct media links.
+- If one GIF fails, try another source/result.
 
-- ### **Now click on the Load Unpacked**
-  ![click_load](asset/load_opt.png)
-- ### **After pressing on `Load Unpacked` it will ask you to choose a folder and now you will choose the cloned folder named `copy-gif`**
+## Contributing
 
-  ![select_ext](asset/load_extn.png)
-
-- ### **Finally the extension should be loaded like below**
-
-  ![loaded](asset/ext_loaded.png)
+Issues and pull requests are welcome.
 
 ## Support
 
-## `Give a Star to the repo`
+If this project helps you, please give the repo a star.
 
 ## License
 
@@ -72,4 +59,4 @@ MIT
 
 ---
 
-> X(Twitter) [@znyd_x](https://x.com/znyd_x)
+Follow on X: [@znyd_x](https://x.com/znyd_x)

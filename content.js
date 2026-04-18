@@ -1,34 +1,27 @@
 let lastHoveredUrl = '';
 
-function setupLinkListeners() {
-    var links = document.getElementsByTagName('a');
-
-    for (var i = 0; i < links.length; i++) {
-        links[i].addEventListener('mouseover', function () {
-            lastHoveredUrl = this.href;
-            // console.log('Hovered vai link URL:', lastHoveredUrl);
-        });
+function trackHoveredLink(event) {
+    const anchor = event.target.closest('a[href]');
+    if (anchor) {
+        lastHoveredUrl = anchor.href;
     }
 }
 
-// Run the setup when the content script loads
-setupLinkListeners();
+document.addEventListener('mouseover', trackHoveredLink, true);
+document.addEventListener('contextmenu', trackHoveredLink, true);
 
-// // Listen for messages from the background script
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "getLastHoveredUrl") {
-        console.log("from background "+lastHoveredUrl)
         sendResponse({ url: lastHoveredUrl });
     }
+    return true;
 });
-
-
-
-// Re-run the setup periodically to catch dynamically added links
-setInterval(setupLinkListeners, 5000);
 
 // Notify that the content script has loaded
 // Content script is ready
 chrome.runtime.sendMessage({action: 'createContextMenu'}, (response) => {
+    if (chrome.runtime.lastError) {
+        return;
+    }
     console.log(response);  // contextMenuCreated
 });
